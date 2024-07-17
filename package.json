@@ -5,8 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build": "prisma generate",
     "dev": "nodemon src/index.js",
-    "start": "npx prisma generate && node index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",

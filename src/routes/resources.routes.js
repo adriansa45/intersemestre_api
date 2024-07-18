@@ -153,7 +153,7 @@ try {
     // URL del blob con el token SAS
     const container = 'https://storage2437c14.blob.core.windows.net/fime'
     const sas_token = 'sp=racwdli&st=2024-07-17T22:48:35Z&se=2024-12-07T06:48:35Z&sv=2022-11-02&sr=c&sig=ktZYlFsmuIxegWgl3guGiwGm2gmr0eJIcMzaOuTzylQ%3D';
-    const blobName = `${file.originalname}`;
+    const blobName = encodeURI(`${file.originalname}`);
     const url = `${container}/${blobName}?${sas_token}`;
 
     // Realizar la solicitud

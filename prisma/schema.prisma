@@ -50,7 +50,15 @@ model subjects {
   image      String?     @db.VarChar
   resources  resources[]
   academies  academies   @relation(fields: [academy_id], references: [academy_id], onDelete: NoAction, onUpdate: NoAction)
-  
+  topics     topics[]
 }
 
-
+model topics {
+  topic_id   Int      @id @default(autoincrement())
+  subject_id Int
+  number     Int?     @default(1) @db.SmallInt
+  name       String   @db.VarChar
+  content    Json?    @db.Json
+  type       Int      @default(0) @db.SmallInt
+  subjects   subjects @relation(fields: [subject_id], references: [subject_id], onDelete: NoAction, onUpdate: NoAction)
+}

@@ -59,6 +59,6 @@ model topics {
   number     Int?     @default(1) @db.SmallInt
   name       String   @db.VarChar
   content    Json?    @db.Json
-  type Int
+  type       Int      @default(0) @db.SmallInt
   subjects   subjects @relation(fields: [subject_id], references: [subject_id], onDelete: NoAction, onUpdate: NoAction)
 }

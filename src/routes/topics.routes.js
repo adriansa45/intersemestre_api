@@ -35,7 +35,9 @@ router.post('/topics', async (req, res) =>{
 
 router.put('/topics', async (req, res) =>{
     const updateTopic = await prisma.topics.update({
-        data: req.body,
+        data: {
+            content: req.body.content
+        },
         where:{
             topic_id: req.body.topic_id
         }

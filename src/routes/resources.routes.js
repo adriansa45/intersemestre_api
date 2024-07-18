@@ -1,13 +1,12 @@
 import multer from 'multer';
 import fetch from 'node-fetch';
-import { v4 as uuidv4 } from 'uuid';
 import { readFileSync, unlinkSync } from 'fs';
 
 import { Router } from "express";
 import prisma from '../db.js'
 
 const router = Router();
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: '/tmp' });
 
 router.delete('/resources/:resource_id', async (req, res) =>{
     const resource_id = Number(req.params.resource_id)

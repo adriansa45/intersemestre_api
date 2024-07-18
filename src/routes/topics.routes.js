@@ -18,7 +18,12 @@ router.get('/topics/:subject_id', async (req, res) =>{
         const topics = await prisma.topics.findMany({
             where: {
                 subject_id: Number(req.param('subject_id'))
-            }
+            },
+            orderBy: [
+                {
+                    number: 'asc'
+                }
+            ]
         });
         res.send(topics);
     }catch{
